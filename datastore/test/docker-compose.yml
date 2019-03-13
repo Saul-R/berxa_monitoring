@@ -23,7 +23,7 @@ services:
       - influxdb
     volumes:
       - grafana_volume:/var/lib/grafana
-  
+
 volumes:
   grafana_volume: {}
   influxdb_volume: {}
