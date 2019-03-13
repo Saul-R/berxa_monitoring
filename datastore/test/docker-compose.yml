@@ -1,4 +1,4 @@
-version: '3.3'
+version: 3.3
 
 services:
   influxdb:
@@ -23,7 +23,7 @@ services:
       - influxdb
     volumes:
       - grafana_volume:/var/lib/grafana
-
+  
 volumes:
   grafana_volume: {}
   influxdb_volume: {}
