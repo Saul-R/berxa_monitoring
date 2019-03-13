@@ -1,1 +1,1 @@
-CREATE DATABASE metrics
+CREATE DATABASE berxa_metrics
