@@ -1,0 +1,5 @@
+{
+    "sketch": "distance_measure/distance_measure.ino",
+    "board": "arduino:avr:uno",
+    "port": "/dev/cu.usbmodem1442301"
+}
