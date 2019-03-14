@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
-const char* ssid     = "Martin_Router_King";
-const char* password = "losbanjosmolan";
+const char* ssid     = "PASS";
+const char* password = "SSID";
 ESP8266WebServer server(80); // HTTP server on port 80
 void setup() {
  Serial.begin(115200);    
