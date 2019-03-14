@@ -2,10 +2,17 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiUDP.h>
+#include <NewPing.h>
 
 const char* ssid     = "ssid";
 const char* password = "pass";
 const String poolId = "pool1";
+
+#define PIN_TRIG 12
+#define PIN_ECHO 13
+#define MAX_DISTANCE 1000
+
+NewPing sonar(PIN_TRIG, PIN_ECHO, MAX_DISTANCE);
 
 void setup() {
  Serial.begin(115200);    
@@ -21,7 +28,6 @@ void setup() {
  Serial.println(ssid);
  Serial.print("IP address: ");
  Serial.println(WiFi.localIP());
- randomSeed(1);
 }
 
 // the IP address of your InfluxDB host
@@ -33,8 +39,7 @@ WiFiUDP udp;
 
 float getDistance() {
   float return_distance;
-  randNumber = random(10,20);
-  return_distance = (float) randNumber;
+  return_distance = sonar.ping_cm();
   return return_distance;
 }
 
