@@ -1,9 +1,12 @@
+#include <SPI.h>
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
-#include <ESP8266WebServer.h>
-const char* ssid     = "PASS";
-const char* password = "SSID";
-ESP8266WebServer server(80); // HTTP server on port 80
+#include <WiFiUDP.h>
+
+const char* ssid     = "SSID";
+const char* password = "++++";
+const String poolId = "pool1";
+
 void setup() {
  Serial.begin(115200);    
  WiFi.disconnect(); // Disconnect AP
@@ -18,12 +21,39 @@ void setup() {
  Serial.println(ssid);
  Serial.print("IP address: ");
  Serial.println(WiFi.localIP());
-server.on("/", [](){
-  server.send(200, "text/plain", "Hello World");
- });
-server.begin(); // Start HTTP server
- Serial.println("HTTP server started.");
+ randomSeed(1);
 }
+
+// the IP address of your InfluxDB host
+byte host[] = {192, 168, 1, 130};
+// the port that the InfluxDB UDP plugin is listening on
+int port = 8089; 
+long randNumber;
+WiFiUDP udp;
+
+float getDistance() {
+  float return_distance;
+  randNumber = random(10,20);
+  return_distance = (float) randNumber;
+  return return_distance;
+}
+
 void loop() {
- server.handleClient();
+  String line, distance;
+
+  // wait 1 second
+  delay(1000);
+
+  // get the current distance from the sensor, to 2 decimal places
+  distance = String(getDistance(), 2);
+
+  // concatenate the distance into the line protocol
+  line = String("distance,pool_id=" + poolId + " value=" + distance);
+  Serial.println(line);
+
+  // send the packet
+  Serial.println("Sending UDP packet...");
+  udp.beginPacket(host, port);
+  udp.print(line);
+  udp.endPacket();
 }

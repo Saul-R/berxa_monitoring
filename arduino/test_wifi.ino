@@ -3,8 +3,9 @@
 #include <WiFiClient.h>
 #include <WiFiUDP.h>
 
-const char* ssid     = "SSID";
-const char* password = "PASS";
+const char* ssid     = "ssid";
+const char* password = "pass";
+const String poolId = "pool1";
 
 void setup() {
  Serial.begin(115200);    
@@ -43,11 +44,11 @@ void loop() {
   // wait 1 second
   delay(1000);
 
-  // get the current temperature from the sensor, to 2 decimal places
+  // get the current distance from the sensor, to 2 decimal places
   distance = String(getDistance(), 2);
 
-  // concatenate the temperature into the line protocol
-  line = String("distance value=" + distance);
+  // concatenate the distance into the line protocol
+  line = String("distance,pool_id=" + poolId + " value=" + distance);
   Serial.println(line);
 
   // send the packet
