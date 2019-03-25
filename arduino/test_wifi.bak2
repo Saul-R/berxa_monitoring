@@ -1,0 +1,70 @@
+#include "NewPing.h"
+#include <Bridge.h>
+#include <HttpClient.h>
+
+// In centimeters / micro_secs
+#define PIN_TRIG 12
+#define PIN_ECHO 13
+#define MAX_DISTANCE 3000
+char ssid[] = "MOVISTAR_9FCA";     //  your network SSID (name) 
+char pass[] = "F9F373412BFFC4608ABF";    // your network password
+int status = WL_IDLE_STATUS;     // the Wifi radio's status
+// the IP address of your InfluxDB host
+byte host[] = {192, 168, 1, 44};
+int port = 8089;
+NewPing sonar(PIN_TRIG, PIN_ECHO, MAX_DISTANCE);
+WiFiUDP udp;
+float distance;
+
+void setup() {
+  Serial.begin (9600);
+  Serial.println("Attempting to connect to WPA network...");
+  pinMode(13,OUTPUT);
+  digitalWrite(13, LOW);
+  Bridge.begin();
+  digitalWrite(13, HIGH);
+  // if unable to connect, halt
+  if ( status != WL_CONNECTED) { 
+    Serial.println("Couldn't get a WiFi connection");
+    while(true);  
+  } 
+  // if the conneciton succeeded, print network info
+  else {
+    Serial.println("Connected to network");
+    // print your WiFi shield's IP address:
+    IPAddress ip = WiFi.localIP();
+    Serial.print("IP Address: ");
+    Serial.println(ip);
+
+    // print the received signal strength:
+    long rssi = WiFi.RSSI();
+    Serial.print("signal strength (RSSI):");
+    Serial.print(rssi);
+    Serial.println(" dBm");
+  }
+}
+
+void print_distance(float distance) {
+  Serial.print("Distance: ");
+  if (distance >= 400 || distance <= 2) {
+    Serial.print(distance);
+    Serial.println("Out of range");
+  }
+  else {
+    Serial.print(distance);
+    Serial.println(" cm");
+  }  
+}
+
+void loop() { 
+  HttpClient client;
+  String line,distanceStr;
+  distance = sonar.ping_cm();
+  // Send results to Serial Monitor
+  print_distance(distance);
+  distanceStr = String(distance);
+  line = String("distance value=" + distanceStr);
+  Serial.println(line);
+  client.begin  
+  delay(1000);
+}
