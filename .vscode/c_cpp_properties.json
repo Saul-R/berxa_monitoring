@@ -9,7 +9,9 @@
                 "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/**",
                 "~/Documents/Arduino/libraries/**"
             ],
-            "forcedInclude": [],
+            "forcedInclude": [
+                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
             "macFrameworkPath": [
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
