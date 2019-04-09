@@ -19,7 +19,6 @@ void setup() {
 void print_distance(float distance) {
   Serial.print("Distance: ");
   if (distance >= 400 || distance <= 2) {
-    Serial.print(distance);
     Serial.println("Out of range");
   }
   else {
@@ -35,7 +34,9 @@ void loop() {
   print_distance(distance);
   distanceStr = String(distance);
   Serial.print(distanceStr);
-  line = String("python /root/send_udp_package.py " + distanceStr);
-  p.runShellCommand(line);
+  if (distance != 0) {
+    line = String("python /root/send_udp_package.py " + distanceStr);
+    p.runShellCommand(line); 
+  }
   delay(500);
 }

@@ -1,5 +1,5 @@
 {
     "sketch": "arduino/berxa_controller.ino",
     "board": "arduino:avr:yun",
-    "port": "/dev/cu.usbmodem14101"
+    "port": "/dev/cu.usbmodem14601"
 }
