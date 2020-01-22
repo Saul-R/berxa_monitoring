@@ -1,7 +1,7 @@
 import socket
 import sys
 
-UDP_IP = "192.168.1.44"
+UDP_IP = "35.246.55.79 "
 UDP_PORT = 8089
 MESSAGE = "distance value=" + sys.argv[1]
 
