@@ -18,8 +18,8 @@ services:
     container_name: grafana
     ports:
       - "80:3000"
-#    env_file:
-#      - '/opt/security/grafana.env'
+   env_file:
+     - '/opt/security/grafana.env'
     links:
       - influxdb
     volumes:
