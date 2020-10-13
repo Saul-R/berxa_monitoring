@@ -11,14 +11,15 @@ services:
       - '/opt/security/influxdb.env'
     volumes:
       - /mnt/disks/influxdb:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf:ro
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
       - "80:3000"
-    env_file:
-      - 'grafana.env'
+#    env_file:
+#      - '/opt/security/grafana.env'
     links:
       - influxdb
     volumes:
