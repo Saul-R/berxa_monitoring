@@ -3,11 +3,11 @@
 #include <Bridge.h>
 
 // In centimeters / micro_secs
-#define PIN_TRIG 12
-#define PIN_ECHO 13
-#define MAX_DISTANCE 1000
+#define DISTANCE_PIN_TRIG 6
+#define DISTANCE_PIN_ECHO 7
+#define DISTANCE_MAX_DISTANCE 1000
 
-NewPing sonar(PIN_TRIG, PIN_ECHO, MAX_DISTANCE);
+NewPing sonar(DISTANCE_PIN_TRIG, DISTANCE_PIN_ECHO, DISTANCE_MAX_DISTANCE);
 
 float distance;
 
@@ -35,7 +35,7 @@ void loop() {
   print_distance(distance);
   distanceStr = String(distance);
   Serial.print(distanceStr);
-  line = String("python /root/send_udp_package.py " + distanceStr);
+  line = String("sh /root/send_metric.sh " + distanceStr);
   p.runShellCommand(line);
   delay(500);
 }
