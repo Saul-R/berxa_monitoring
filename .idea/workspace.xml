@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abba97d1-ce77-4a09-b7c4-b34180ab4fc7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/infrastructure/cloud/oci-waitscript-create-instance.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/config.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/instance.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/test/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="abba97d1-ce77-4a09-b7c4-b34180ab4fc7" name="Default Changelist" comment="stash">
+      <change beforePath="$PROJECT_DIR$/infrastructure/cloud/oci-waitscript-create-instance.sh" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/oci-waitscript-create-instance.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cloud/terraform/config.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cloud/terraform/instance.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cloud/terraform/test/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/cloud/terraform/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cloud/terraform/variables.tf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "feature/oci-waitscript",
-    "last_opened_file_path": "/Users/rodriguez_as/workdir/berxa_monitoring",
+    "last_opened_file_path": "/Users/rodriguez_as/workdir/berxa_monitoring/infrastructure/cloud/terraform",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,9 +96,12 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/infrastructure/cloud/terraform/test" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/infrastructure/cloud/terraform" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/infrastructure/cloud/terraform" />
+      <recent name="$PROJECT_DIR$/infrastructure/cloud/terraform/test" />
     </key>
   </component>
   <component name="RunManager">
@@ -149,8 +151,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552512052741</updated>
-      <workItem from="1749313900770" duration="3571000" />
+      <workItem from="1749313900770" duration="3888000" />
     </task>
+    <task id="LOCAL-00001" summary="stash">
+      <option name="closed" value="true" />
+      <created>1749317519659</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749317519659</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -185,6 +196,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="stash" />
+    <option name="LAST_COMMIT_MESSAGE" value="stash" />
   </component>
   <component name="masterDetails">
     <states>
